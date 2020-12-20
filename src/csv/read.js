@@ -28,7 +28,7 @@ const parseFile = (filename) => {
   const fileData = fileStream.createReadStream(`data/${filename}`).pipe(csv());
 
   fileData.on('data', (row) => {
-    data.push(row);
+    data.push({ ...row, filename });
   });
 
   return new Promise((resolve, reject) => {
@@ -41,14 +41,16 @@ const parseAllFiles = async (files) => {
   var allData = await Promise.all(
     files.map(async (file) => {
       const data = await parseFile(file);
-      return { file, data };
+      return [...data, {}];
     })
   );
   return allData;
 };
 
 module.exports = async (dirName) => {
+  console.log('reading all csv files from the data folder.');
   const fileNames = await getAllFileNames(dirName);
   const allData = parseAllFiles(fileNames);
+  console.log('done reading all csv data.');
   return allData;
 };

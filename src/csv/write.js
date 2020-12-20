@@ -1,42 +1,22 @@
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const writeFile = () => {
-  console.log('writing to out.csv file...');
+const csvWriter = createCsvWriter({
+  path: 'bin/merged.csv',
+  header: [
+    { id: 'Name', title: 'Name' },
+    { id: 'Surname', title: 'Surname' },
+    { id: 'Age', title: 'Age' },
+    { id: 'Gender', title: 'Gender' },
+    { id: 'filename', title: 'Bank' }
+  ]
+});
 
-  const csvWriter = createCsvWriter({
-    path: 'bin/out.csv',
-    header: [
-      { id: 'name', title: 'Name' },
-      { id: 'surname', title: 'Surname' },
-      { id: 'age', title: 'Age' },
-      { id: 'gender', title: 'Gender' }
-    ]
-  });
-
-  const data = [
-    {
-      name: 'John',
-      surname: 'Snow',
-      age: 26,
-      gender: 'M'
-    },
-    {
-      name: 'Clair',
-      surname: 'White',
-      age: 33,
-      gender: 'F'
-    },
-    {
-      name: 'Fancy',
-      surname: 'Brown',
-      age: 78,
-      gender: 'F'
-    }
-  ];
+const writeFile = (data) => {
+  console.log('writing data to merged.csv in the bin directory.');
 
   csvWriter
     .writeRecords(data)
-    .then(() => console.log('The CSV file was written successfully'));
+    .then(() => console.log('The CSV file was written successfully.'));
 };
 
 module.exports = writeFile;
