@@ -1,6 +1,8 @@
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const writeFile = () => {
+  console.log('writing to out.csv file...');
+
   const csvWriter = createCsvWriter({
     path: 'bin/out.csv',
     header: [

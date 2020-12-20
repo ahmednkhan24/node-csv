@@ -1,20 +1,18 @@
 const { parseAllFiles } = require('./csv/read');
 const utils = require('./utils');
 const write = require('./csv/write');
+const files = require('./files');
 
 const parseData = async () => {
-  const fileNames = ['data.csv', 'data2.csv'];
   console.log('parsing data.csv file...');
 
-  const data = await parseAllFiles(fileNames);
+  const data = await parseAllFiles(files);
 
   console.log('done parsing data.csv file.');
 
   utils.printAllData(data);
 };
 
-// parseData();
+parseData();
 
-write();
-
-// console.log('writing to out.csv file...');
+// write();
