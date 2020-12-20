@@ -1,10 +1,31 @@
-const fs = require('fs');
+const fileStream = require('fs');
+const EventEmitter = require('events').EventEmitter;
 const csv = require('csv-parser');
+
+const getAllFileNames = (dirName) => {
+  const filesEventEmitter = new EventEmitter();
+  const fileNames = [];
+
+  fileStream.readdir(dirName, (err, files) => {
+    if (err) {
+      throw err;
+    }
+
+    files.forEach((file) => fileNames.push(file));
+
+    filesEventEmitter.emit('done');
+  });
+
+  return new Promise((resolve, reject) => {
+    filesEventEmitter.on('done', () => resolve(fileNames));
+    filesEventEmitter.on('error', reject);
+  });
+};
 
 const parseFile = (filename) => {
   const data = [];
 
-  const fileData = fs.createReadStream(`data/${filename}`).pipe(csv());
+  const fileData = fileStream.createReadStream(`data/${filename}`).pipe(csv());
 
   fileData.on('data', (row) => {
     data.push(row);
@@ -26,7 +47,8 @@ const parseAllFiles = async (files) => {
   return allData;
 };
 
-module.exports = {
-  parseFile,
-  parseAllFiles
+module.exports = async (dirName) => {
+  const fileNames = await getAllFileNames(dirName);
+  const allData = parseAllFiles(fileNames);
+  return allData;
 };
