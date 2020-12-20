@@ -1,4 +1,4 @@
-exports.printAllData = (allData) => {
+const printAllData = (allData) => {
   console.log();
   allData.forEach((files) => {
     console.log('file: ', files.file);
@@ -6,4 +6,8 @@ exports.printAllData = (allData) => {
     console.log();
   });
   console.log();
+};
+
+module.exports = {
+  printAllData
 };
