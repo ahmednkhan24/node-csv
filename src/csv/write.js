@@ -3,11 +3,10 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
   path: 'bin/merged.csv',
   header: [
-    { id: 'Name', title: 'Name' },
-    { id: 'Surname', title: 'Surname' },
-    { id: 'Age', title: 'Age' },
-    { id: 'Gender', title: 'Gender' },
-    { id: 'filename', title: 'Bank' }
+    { id: 'PostDate', title: 'PostDate' },
+    { id: 'Description', title: 'Description' },
+    { id: 'Amount', title: 'Amount' },
+    { id: 'FileName', title: 'FileName' }
   ]
 });
 

@@ -1,6 +1,7 @@
-Name,Surname,Age,Gender,Bank
-John,Snow,26,M,data.csv
-Clair,White,33,F,data.csv
-,,,,
-Fancy,Brown,78,F,data2.csv
-,,,,
+PostDate,Description,Amount,FileName
+12/01/2020,ONLINE PAYMENT,175.10,data.csv
+12/14/2020,APPLE.COM/BILL 866-712-7753 CA,-5.30,data.csv
+,,,
+12/02/2020,INTERNET PAYMENT - THANK YOU,-1173.20,data2.csv
+12/14/2020,JEWEL OSCO,71.66,data2.csv
+,,,

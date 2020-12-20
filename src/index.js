@@ -7,6 +7,8 @@ const parseData = async () => {
 
   const mergedData = [].concat.apply([], data);
 
+  console.log('merged data: ', mergedData);
+
   write(mergedData);
 };
 
