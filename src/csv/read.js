@@ -36,7 +36,11 @@ const parseFile = (filename) => {
   const fileData = fileStream.createReadStream(`data/${filename}`).pipe(csv());
 
   fileData.on('data', (row) => {
-    data.push({ ...row, FileName: filename });
+    data.push({
+      ...row,
+      FileName: filename,
+      Amount: Number(row.Amount.replace(/[^0-9.-]+/g, ''))
+    });
   });
 
   return new Promise((resolve, reject) => {
