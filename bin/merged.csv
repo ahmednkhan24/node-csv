@@ -1,7 +1,13 @@
 PostDate,Description,Amount,FileName
-12/01/2020,ONLINE PAYMENT,175.10,data.csv
-12/14/2020,APPLE.COM/BILL 866-712-7753 CA,-5.30,data.csv
+11/29/2020,Amazon Prime Amzn.com/billWA,10,bestbuy.csv
 ,,,
-12/02/2020,INTERNET PAYMENT - THANK YOU,-1173.20,data2.csv
-12/14/2020,JEWEL OSCO,71.66,data2.csv
+12/31/2020,AMZN Mktp US,5,chase.csv
+,,,
+11/14/2020,COSTCO GAS,25,costco.csv
+,,,
+12/26/2020,JEWEL OSCO,42,discover.csv
+,,,
+12/19/2020,APPLE.COM/BILL 866-712-7753 CA,2.99,pnc.csv
+,,,
+12/26/2020,APPLE.COM/BILL 866-712-7753 CA,14.99,wellsfargo.csv
 ,,,
