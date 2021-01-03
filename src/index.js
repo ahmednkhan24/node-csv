@@ -2,7 +2,7 @@ const readAllFiles = require('./csv/read');
 const write = require('./csv/write');
 
 const parseData = async () => {
-  console.time();
+  console.time('Compute Time');
   try {
     const folderPath =
       process.env.NODE_ENV === 'production'
@@ -18,12 +18,12 @@ const parseData = async () => {
     write(mergedData, `${folderPath}/${outDir}`);
 
     console.log('Success! 🥳🥳🥳\n');
-    console.timeEnd();
+    console.timeEnd('Compute Time');
 
     console.log('\nExiting...\n');
   } catch (err) {
     console.log('An error occurred 😞😞😞\n');
-    console.timeEnd();
+    console.timeEnd('Compute Time');
 
     console.log('\nExiting...\n');
   }
