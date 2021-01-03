@@ -3,12 +3,15 @@ const write = require('./csv/write');
 
 const parseData = async () => {
   console.time();
-
-  const folderPath = '/Users/ahmedkhan/Downloads';
-  const inDir = 'data';
-  const outDir = 'bin';
-
   try {
+    const folderPath =
+      process.env.NODE_ENV === 'production'
+        ? '/Users/ahmedkhan/Downloads'
+        : process.cwd();
+
+    const inDir = 'data';
+    const outDir = 'bin';
+
     const data = await readAllFiles(`${folderPath}/${inDir}`);
     const mergedData = [].concat.apply([], data);
 
