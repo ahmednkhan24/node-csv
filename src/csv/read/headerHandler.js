@@ -3,7 +3,7 @@ const multipliers = require('./multipliers');
 const formatNumber = (numString) => Number(numString.replace(/[^0-9.-]+/g, ''));
 const formatWhiteSpace = (string) => string.replace(/\s+/g, ' ').trim();
 
-const generateCallback = ({ date, amount, desc, multiplier }) => {
+const generateCallback = ({ date, amount, desc, debit, multiplier }) => {
   const callback = (rowOfData, fileName) => {
     const data = {};
 
@@ -12,11 +12,15 @@ const generateCallback = ({ date, amount, desc, multiplier }) => {
         case date:
           data['PostDate'] = formatWhiteSpace(rowOfData[index]);
           break;
+        case desc:
+          data['Description'] = formatWhiteSpace(rowOfData[index]);
+          break;
         case amount:
           data['Amount'] = formatNumber(rowOfData[index]) * multiplier;
           break;
-        case desc:
-          data['Description'] = formatWhiteSpace(rowOfData[index]);
+        case debit:
+          if (formatNumber(rowOfData[index]) !== 0 && data['Amount'] === 0)
+            data['Amount'] = formatNumber(rowOfData[index]) * -1;
           break;
         default:
           return null;
@@ -70,6 +74,17 @@ module.exports = (fileName) => {
         amount: 1,
         desc: 4,
         multiplier: multipliers.WELLSFARGO
+      })
+    };
+  } else if (fileName.includes('PNC') && fileName.includes('DEBIT')) {
+    return {
+      headers: true,
+      handler: generateCallback({
+        date: 0,
+        amount: 2,
+        desc: 1,
+        debit: 3,
+        multiplier: multipliers.PNC
       })
     };
   } else if (fileName.includes('PNC')) {
