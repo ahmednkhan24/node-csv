@@ -1,8 +1,14 @@
+const fileStream = require('fs');
 const parseAllFiles = require('./parse');
 const importFileNames = require('./importFileNames');
 
 module.exports = async (dirName) => {
   console.log(`👋👋👋 Reading all csv files from the ${dirName} folder.\n`);
+
+  if (!fileStream.existsSync(dirName)) {
+    console.log('Could not find the data directory.');
+    throw err;
+  }
 
   const fileNames = await importFileNames(dirName);
 
