@@ -24,7 +24,9 @@ module.exports = async (dirName, files) => {
       console.log(`Parsing ${dirName}/${file}...`);
 
       let oneFilesData = await parseFile(dirName, file, headerHandler(file));
-      oneFilesData = oneFilesData.filter((entry) => entry.Amount > 0);
+      if (!file.toUpperCase().includes('DEBIT')) {
+        oneFilesData = oneFilesData.filter((entry) => entry.Amount > 0);
+      }
       oneFilesData.sort((a, b) => {
         return new Date(a.PostDate) - new Date(b.PostDate);
       });

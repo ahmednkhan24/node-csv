@@ -42,16 +42,6 @@ module.exports = (fileName) => {
         multiplier: multipliers.BESTBUY
       })
     };
-  } else if (fileName.includes('CHASE')) {
-    return {
-      headers: true,
-      handler: generateCallback({
-        date: 1,
-        amount: 5,
-        desc: 2,
-        multiplier: multipliers.CHASE
-      })
-    };
   } else if (fileName.includes('COSTCO')) {
     return {
       headers: true,
@@ -72,6 +62,16 @@ module.exports = (fileName) => {
         multiplier: multipliers.DISCOVER
       })
     };
+  } else if (fileName.includes('WELLSFARGO')) {
+    return {
+      headers: false,
+      handler: generateCallback({
+        date: 0,
+        amount: 1,
+        desc: 4,
+        multiplier: multipliers.WELLSFARGO
+      })
+    };
   } else if (fileName.includes('PNC')) {
     return {
       headers: true,
@@ -82,14 +82,24 @@ module.exports = (fileName) => {
         multiplier: multipliers.PNC
       })
     };
-  } else if (fileName.includes('WELLSFARGO')) {
+  } else if (fileName.includes('CHASE') && fileName.includes('DEBIT')) {
     return {
-      headers: false,
+      headers: true,
       handler: generateCallback({
-        date: 0,
-        amount: 1,
-        desc: 4,
-        multiplier: multipliers.WELLSFARGO
+        date: 1,
+        amount: 3,
+        desc: 2,
+        multiplier: multipliers.CHASE
+      })
+    };
+  } else if (fileName.includes('CHASE')) {
+    return {
+      headers: true,
+      handler: generateCallback({
+        date: 1,
+        amount: 5,
+        desc: 2,
+        multiplier: multipliers.CHASE
       })
     };
   } else {

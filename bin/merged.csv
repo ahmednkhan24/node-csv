@@ -1,6 +1,9 @@
 PostDate,Description,Amount,FileName
 11/29/2020,Amazon Prime Amzn.com/billWA,10,bestbuy.csv
 ,,,
+12/29/2020,DISCOVER E-PAYMENT WEB ID: 123,1174.28,chase-debit.csv
+12/29/2020,DEPOSIT,-609,chase-debit.csv
+,,,
 12/31/2020,AMZN Mktp US,5,chase.csv
 ,,,
 11/14/2020,COSTCO GAS,25,costco.csv
@@ -8,6 +11,9 @@ PostDate,Description,Amount,FileName
 12/26/2020,JEWEL OSCO,42,discover.csv
 ,,,
 12/19/2020,APPLE.COM/BILL 866-712-7753 CA,2.99,pnc.csv
+,,,
+12/07/2020,Subscription Acorns Ahmed Khan,1,wellsfargo-debit.csv
+12/28/2020,ZELLE FROM AHMED NAWAZ KHAN ON 12/27,-50,wellsfargo-debit.csv
 ,,,
 12/26/2020,APPLE.COM/BILL 866-712-7753 CA,14.99,wellsfargo.csv
 ,,,
