@@ -1,10 +1,10 @@
 const fileStream = require('fs');
 const csv = require('csv-parser');
 const headerHandler = require('./headerHandler');
+const { seperateDebitsAndCredits } = require('./utils');
 
-const parseFile = (dirName, fileName, logic) => {
+const parseFile = (dirName, fileName, { headers, handler }) => {
   const data = [];
-  const { headers, handler } = logic;
 
   const fileData = fileStream
     .createReadStream(`${dirName}/${fileName}`)
@@ -24,12 +24,15 @@ module.exports = async (dirName, files) => {
       console.log(`Parsing ${dirName}/${file}...`);
 
       let oneFilesData = await parseFile(dirName, file, headerHandler(file));
-      if (!file.toUpperCase().includes('DEBIT')) {
-        oneFilesData = oneFilesData.filter((entry) => entry.Amount > 0);
-      }
       oneFilesData.sort((a, b) => {
         return new Date(a.PostDate) - new Date(b.PostDate);
       });
+      if (file.toUpperCase().includes('DEBIT')) {
+        const { debits, credits } = seperateDebitsAndCredits(oneFilesData);
+        oneFilesData = [...credits, {}, ...debits];
+      } else {
+        oneFilesData = oneFilesData.filter((entry) => entry.Amount > 0);
+      }
 
       return [...oneFilesData, {}];
     })
