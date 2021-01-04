@@ -30,9 +30,10 @@ module.exports = async (dirName, files) => {
       if (file.toUpperCase().includes('DEBIT')) {
         const { debits, credits } = seperateDebitsAndCredits(oneFilesData);
         oneFilesData = [...credits, {}, ...debits];
-      } else {
-        oneFilesData = oneFilesData.filter((entry) => entry.Amount > 0);
       }
+      // else {
+      //   oneFilesData = oneFilesData.filter((entry) => entry.Amount > 0);
+      // }
 
       return [...oneFilesData, {}];
     })
