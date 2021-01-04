@@ -18,15 +18,13 @@ const parseData = async () => {
     write(mergedData, `${folderPath}/${outDir}`);
 
     console.log('Success! 🥳🥳🥳\n');
-    console.timeEnd('Compute Time');
-
-    console.log('\nExiting...\n');
   } catch (err) {
     console.log('An error occurred 😞😞😞\n');
-    console.timeEnd('Compute Time');
-
-    console.log('\nExiting...\n');
   }
+  console.timeEnd('Compute Time');
+  const used = process.memoryUsage().heapUsed / 1024 / 1024;
+  console.log(`Compute Memory: ${Math.round(used * 100) / 100}MB`);
+  console.log('\nExiting...\n');
 };
 
 parseData();
