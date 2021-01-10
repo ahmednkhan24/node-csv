@@ -1,5 +1,6 @@
 module.exports = {
   PNC: 1,
+  SEARS: 1,
   COSTCO: 1,
   BESTBUY: 1,
   DISCOVER: 1,

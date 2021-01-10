@@ -46,6 +46,16 @@ module.exports = (fileName) => {
         multiplier: multipliers.BESTBUY
       })
     };
+  } else if (fileName.includes('SEARS')) {
+    return {
+      headers: false,
+      handler: generateCallback({
+        date: 0,
+        amount: 1,
+        desc: 2,
+        multiplier: multipliers.SEARS
+      })
+    };
   } else if (fileName.includes('COSTCO')) {
     return {
       headers: true,
