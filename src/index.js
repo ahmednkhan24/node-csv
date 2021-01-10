@@ -9,8 +9,8 @@ const parseData = async () => {
         ? '/Users/ahmedkhan/Downloads'
         : process.cwd();
 
-    const inDir = 'data';
-    const outDir = 'bin';
+    const inDir = 'input';
+    const outDir = 'output';
 
     const data = await readAllFiles(`${folderPath}/${inDir}`);
     const mergedData = [].concat.apply([], data);

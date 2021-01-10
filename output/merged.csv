@@ -1,5 +1,6 @@
 PostDate,Description,Amount,FileName
 11/29/2020,Amazon Prime Amzn.com/billWA,10,bestbuy.csv
+12/02/2020,ONLINE PAYMENT DEERFIELD IL,-100,bestbuy.csv
 ,,,
 12/29/2020,DISCOVER E-PAYMENT WEB ID: 123,1000,chase-debit.csv
 12/30/2020,CHASE E-PAYMENT WEB ID: 123,500,chase-debit.csv
@@ -7,11 +8,14 @@ PostDate,Description,Amount,FileName
 12/29/2020,DEPOSIT,500,chase-debit.csv
 12/31/2020,DEPOSIT,200,chase-debit.csv
 ,,,
+12/29/2020,Payment Thank You-Mobile,-200,chase.csv
 12/31/2020,AMZN Mktp US,5,chase.csv
 ,,,
 11/14/2020,COSTCO GAS,25,costco.csv
+12/27/2020,"ONLINE PAYMENT, THANK YOU",0,costco.csv
 ,,,
 12/26/2020,JEWEL OSCO,42,discover.csv
+12/27/2020,INTERNET PAYMENT - THANK YOU,-100,discover.csv
 ,,,
 12/29/2020,ACH WEBSINGLE BEST BUY PAYMENT,90,pnc-debit.csv
 12/29/2020,ACH COSTCO PAYMENT,200,pnc-debit.csv
@@ -19,6 +23,7 @@ PostDate,Description,Amount,FileName
 12/01/2020,MOBILE DEPOSIT,111.11,pnc-debit.csv
 12/11/2020,DIRECT DEPOSIT,100,pnc-debit.csv
 ,,,
+12/02/2020,ONLINE CREDIT CARD PMT,-100,pnc.csv
 12/19/2020,APPLE.COM/BILL 866-712-7753 CA,2.99,pnc.csv
 ,,,
 12/01/2020,Subscription iTunes Ahmed Khan,2.99,wellsfargo-debit.csv
@@ -28,4 +33,5 @@ PostDate,Description,Amount,FileName
 12/28/2020,ZELLE FROM AHMED NAWAZ KHAN ON 12/27,50,wellsfargo-debit.csv
 ,,,
 12/26/2020,APPLE.COM/BILL 866-712-7753 CA,14.99,wellsfargo.csv
+12/27/2020,ONLINE PAYMENT,-22.94,wellsfargo.csv
 ,,,
