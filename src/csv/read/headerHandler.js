@@ -56,6 +56,16 @@ module.exports = (fileName) => {
         multiplier: multipliers.SEARS
       })
     };
+  } else if (fileName.includes('PINK')) {
+    return {
+      headers: true,
+      handler: generateCallback({
+        date: 0,
+        amount: 4,
+        desc: 1,
+        multiplier: multipliers.PINK
+      })
+    };
   } else if (fileName.includes('COSTCO')) {
     return {
       headers: true,
