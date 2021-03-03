@@ -1,7 +1,7 @@
 const fileStream = require('fs');
 const csv = require('csv-parser');
 const headerHandler = require('./headerHandler');
-const { seperateDebitsAndCredits } = require('./utils');
+const { seperateDebitsAndCredits, getDateFromArgs } = require('./utils');
 
 const parseFile = (dirName, fileName, { headers, handler }) => {
   const data = [];
@@ -24,6 +24,14 @@ module.exports = async (dirName, files) => {
       console.log(`Parsing ${dirName}/${file}...`);
 
       let oneFilesData = await parseFile(dirName, file, headerHandler(file));
+
+      // remove dates that aren't part of the specified month
+      const dateToUse = getDateFromArgs();
+      oneFilesData = oneFilesData.filter((data) => {
+        const dataDate = new Date(data.PostDate);
+        return dataDate.getMonth() === dateToUse.getMonth();
+      });
+
       oneFilesData.sort((a, b) => {
         return new Date(a.PostDate) - new Date(b.PostDate);
       });
