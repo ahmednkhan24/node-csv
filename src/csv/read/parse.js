@@ -35,6 +35,7 @@ module.exports = async (dirName, files) => {
       oneFilesData.sort((a, b) => {
         return new Date(a.PostDate) - new Date(b.PostDate);
       });
+
       if (file.toUpperCase().includes('DEBIT')) {
         const { debits, credits } = seperateDebitsAndCredits(oneFilesData);
         oneFilesData = [...credits, {}, ...debits];

@@ -13,6 +13,7 @@ const parseData = async () => {
     const outDir = 'output';
 
     const data = await readAllFiles(`${folderPath}/${inDir}`);
+    // convert an array of arrays of objects into an array of objects
     const mergedData = [].concat.apply([], data);
 
     write(mergedData, `${folderPath}/${outDir}`);
